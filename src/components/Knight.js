@@ -8,14 +8,15 @@ const knightStyle = {
   fontWeight: "bold",
   textAlign: "center",
   lineHeight: "4rem",
-  cursor: "move"
+  cursor: "move",
+  zIndex: 1,
 };
 const Knight = () => {
   const [{ isDragging }, drag, preview] = useDrag({
     item: { type: ItemTypes.KNIGHT },
-    collect: monitor => ({
-      isDragging: !!monitor.isDragging()
-    })
+    collect: (monitor) => ({
+      isDragging: !!monitor.isDragging(),
+    }),
   });
   return (
     <>
@@ -24,7 +25,7 @@ const Knight = () => {
         ref={drag}
         style={{
           ...knightStyle,
-          opacity: isDragging ? 0.5 : 1
+          opacity: isDragging ? 0.5 : 1,
         }}
       >
         ♘
